@@ -94,8 +94,12 @@ source /etc/profile.d/cuda.sh
  
     $ nvcc --version
     $ nvidia-smi
-    $ sudo reboot
-
+    $ sudo reboot    
+    $ nvidia-smi | grep "Driver Version" | awk '{print $6}' | cut -c2-  
+    $ nvcc --version | grep "release" | awk '{print $6}'                  
+    $ locate cudnn | grep "libcudnn.so." | tail -n1 | sed -r 's/^.*\.so\.//'
+    $ find /usr -name "*cudnn.so.*" | head -n1 | sed -r 's/^.*\.so\.//'
+    $ locate nccl| grep "libnccl.so" | tail -n1 | sed -r 's/^.*\.so\.//'
 
 
 
